@@ -1,0 +1,112 @@
+% Tu TFG empieza aquí
+% https://en.wikipedia.org/wiki/Standing_on_the_shoulders_of_giants 
+
+\documentclass{report}
+
+%───────── Template, covers & back cover ──────────────────────────────
+\usepackage{sty_files/template-TFGespaniol-uma}      
+
+\usepackage{sty_files/cotutor_cover-blueuma}
+\usepackage{sty_files/cotutor_cover-whiteuma}
+
+\usepackage{sty_files/plain_cover-blueuma}
+\usepackage{sty_files/plain_cover-whiteuma}
+
+\usepackage{sty_files/backcover-umaes}
+
+%───────── Helper packages ───────────────────────
+\usepackage{csquotes}
+\usepackage[
+  backend=biber,
+  style=numeric,
+  sorting=nyt
+]{biblatex}
+\addbibresource{references.bib}
+
+%======================================================================
+\begin{document}
+\frontmatter
+%────────────────────── Blue front cover ───────────────────────────────
+
+\MakeBlueUMACover{ 
+  degree     = {Grado en Ingeniería Informática},
+  mencion    = {Tecnologías del Software}, % Puedes dejarlo en blanco
+  titleES    = {Generación Procedural de Terrenos mediante Ruido Perlin y Erosión Hidráulica en Tiempo Real},
+  titleEN    = {Procedural Terrain Generation via Perlin Noise and Real-Time Hydraulic Erosion},
+  author     = {John Doe},
+  tutor      = {Dr.\ John Doe},
+  cotutor    = {Dra.\ Jane Doe},
+  dept       = {Departamento de Lenguajes y Ciencias de la Computación},
+  cityDate   = {Málaga, \today},
+  logoLeft   = {logos/NEG-uma-logo.png},
+  logoRight  = {logos/NEG-etsi-logo.png}
+}
+
+%────────────────────── White front cover ──────────────────────────────
+
+\MakeWhiteUMACover{ 
+  degree      = {Grado en Ingeniería Informática},
+  mencion     = {Tecnologías del Software},
+  titleES     = {Generación Procedural de Terrenos mediante Ruido Perlin y Erosión Hidráulica en Tiempo Real},
+  titleEN     = {Procedural Terrain Generation via Perlin Noise and Real-Time Hydraulic Erosion},
+  author      = {John Doe},
+  tutor       = {Dr.\ John Doe},
+  cotutor     = {Dra.\ Jane Doe},
+  dept        = {Departamento de Lenguajes y Ciencias de la Computación},
+  cityDate    = {MÁLAGA, \today},
+  defenseDate = {septiembre de 2025},
+  logoLeft   = {logos/POS-uma-logo.png},
+  logoRight  = {logos/POS-etsi-logo.png}
+}
+
+%────────────────────── Abstract / Resumen ─────────────────────────────
+\begin{abstract}
+
+\medskip
+\noindent\textbf{Keywords:} 
+\end{abstract}
+
+\renewcommand{\abstractname}{Resumen}
+\begin{abstract}
+
+
+\medskip
+\noindent\textbf{Palabras clave:} 
+\end{abstract}
+%\addcontentsline{toc}{chapter}{Resumen}
+\renewcommand{\abstractname}{Abstract}
+
+% Para agradecimientos in inglés, descomentar la siguiente línea:
+%\SetAcknowledgmentsName{Acknowledgments}
+
+\begin{umaacknowledgments}
+...  
+\end{umaacknowledgments}
+
+
+%────────────────────── Contents & lists ────────────────────────────────
+\cleardoublepage
+\tableofcontents
+\cleardoublepage
+\listoffigures
+\cleardoublepage
+\listoftables
+\cleardoublepage
+
+%────────────────────── Nomenclature ────────────────────────────────────
+\nomenclature{$x,y$}{Horizontal coordinates in height-field grid}
+\printnomenclature
+\cleardoublepage
+
+\mainmatter
+%────────────────────── Chapter 1 — Introduction ────────────────────────
+\chapter{Introduction}
+
+
+%────────────────────── Back matter ────────────────────────────────────
+\backmatter
+\printbibliography
+\cleardoublepage
+\MakeUMABackCover
+\end{document}
+%======================================================================
