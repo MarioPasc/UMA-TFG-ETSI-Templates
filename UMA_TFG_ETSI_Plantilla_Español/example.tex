@@ -1,0 +1,331 @@
+% ======================================================================
+%  UMA – ETSI Informática
+%  example.tex (2025-07-18)
+%  Author: Mario Pascual González <mpascual@uma.es>
+% ======================================================================
+
+% ======================================================================
+% Nota:
+
+% Gracias por usar mi plantilla para tu Trabajo Fin de Grado. Si tienes
+% cualquier comentario para mejorarla, o quieres hacerlo tú mism@, puedes
+% ponerte en contacto conmigo en mpascual@uma.es, o crear un pull request 
+% en https://github.com/MarioPasc/UMA-TFG-ETSI-Templates 
+
+% El proyecto puede tardar bastante en compilar por primera vez, es normal. 
+% Una vez se hagan varias compilaciones, la caché de Overleaf se llenará y
+% cargará más rápido. 
+% Si quieres ahorrar tiempo de carga, puedes comentar las líneas 
+%     \usepackage{sty_files/cotutor_cover-blueuma}
+%     \usepackage{sty_files/cotutor_cover-whiteuma}
+% Si no tienes un co-tutor asociado (y vas a usar \MakePlain{Blue/White}UMACover)
+% o, si tienes un co-tutor asociado, comentar las líneas
+%      \usepackage{sty_files/plain_cover-blueuma}
+%      \usepackage{sty_files/plain_cover-whiteuma}
+% Y vas a usar \Make{Blue/White}UMACover
+% ======================================================================
+\documentclass{report}
+
+%───────── Plantilla, portadas y contraportada ─────────────────────────
+\usepackage[malacitana]{template/sty_files/template-TFGenglish-uma}
+
+\usepackage{template/sty_files/cotutor_cover-blueuma}
+\usepackage{template/sty_files/cotutor_cover-whiteuma}
+\usepackage{template/sty_files/plain_cover-blueuma}
+\usepackage{template/sty_files/plain_cover-whiteuma}
+\usepackage{template/sty_files/backcover-umaes}
+
+%───────── Paquetes auxiliares ─────────────────────────────────────────
+\usepackage{blindtext}
+\usepackage{mwe}               % imágenes de prueba
+\usepackage{csquotes}
+\usepackage[
+  backend=biber,
+  style=numeric,
+  sorting=nyt
+]{biblatex}
+\addbibresource{references.bib}
+
+%======================================================================
+\begin{document}
+
+\frontmatter
+%────────────────────── Blue front cover ───────────────────────────────
+
+% Nota:
+% Si tu TFG tiene un Co-tutor asociado, usa el comando \MakeBlueUmaCover;
+% Si tu TFG *NO* tiene un Co-tutor asociado, usa el comando \MakePlainBlueUmaCover
+\MakeBlueUMACover{
+  degree     = {Grado en Ingeniería Informática},
+  mencion    = {Ingeniería del Software},
+  titleES    = {Game of Life Acelerado por GPU para Performance Audiovisual en Tiempo Real},
+  titleEN    = {GPU-Accelerated Game of Life for Real-Time Audiovisual Performance},
+  author     = {John Doe},
+  tutor      = {Dr.~John Doe},
+  cotutor    = {Dra.~Jane Doe},
+  dept       = {Departamento de Lenguajes y Ciencias de la Computación},
+  cityDate   = {Málaga, \today},
+  logoLeft   = {template/logos/NEG-uma-logo.png},
+  logoRight  = {template/logos/NEG-etsi-logo.png}
+}
+
+%────────────────────── White front cover ──────────────────────────────
+
+% Nota:
+% Si tu TFG tiene un Co-tutor asociado, usa el comando \MakeWhiteUmaCover;
+% Si tu TFG *NO* tiene un Co-tutor asociado, usa el comando \MakePlainWhiteUmaCover
+\MakeWhiteUMACover{
+  degree      = {Grado en Ingeniería Informática},
+  mencion     = {Ingeniería del Software},
+  titleES     = {Game of Life Acelerado por GPU para Performance Audiovisual en Tiempo Real},
+  titleEN     = {GPU-Accelerated Game of Life for Real-Time Audiovisual Performance},
+  author      = {John Doe},
+  tutor       = {Dr.~John Doe},
+  cotutor     = {Dra.~Jane Doe},
+  dept        = {Departamento de Lenguajes y Ciencias de la Computación},
+  cityDate    = {MÁLAGA, \today},
+  defenseDate = {septiembre de 2025},
+  logoLeft    = {template/logos/POS-uma-logo.png},
+  logoRight   = {template/logos/POS-etsi-logo.png}
+}
+
+%────────────────────── Resumen / Abstract ─────────────────────────────
+\renewcommand{\abstractname}{Resumen}
+\begin{abstract}
+Presentamos un motor del \emph{Game of Life} totalmente paralelizado en la GPU
+que genera, de forma simultánea, texturas de vídeo 4-K a \SI{144}{fps} y flujos
+MIDI sincronizados para síntesis musical.  La emulación se implementa como
+\emph{compute shader} en \texttt{WGSL} y se ejecuta sobre WebGPU, facilitando
+la portabilidad a navegadores modernos.  Se compara el rendimiento con
+implementaciones clásicas en CPU y CUDA y se ilustran usos en
+\emph{live-coding} audiovisual.
+
+\medskip
+\noindent\textbf{Palabras clave:} autómatas celulares, WebGPU, síntesis
+procedural, música generativa, gráficos en tiempo real
+\end{abstract}
+
+\renewcommand{\abstractname}{Abstract}
+\begin{abstract}
+We present a fully GPU-parallelised \emph{Game of Life} engine that renders
+4-K video textures at \SI{144}{fps} while streaming synchronised MIDI notes for
+generative music.  The automaton is expressed as a compute shader in
+\texttt{WGSL} and runs on WebGPU, providing browser-level portability.
+Performance is benchmarked against CPU and CUDA baselines, and live-coding
+use-cases are demonstrated.
+
+\medskip
+\noindent\textbf{Keywords:} cellular automata, WebGPU, procedural synthesis,
+generative music, real-time graphics
+\end{abstract}
+
+%──────────────── Agradecimientos ──────────────────────────────────────
+\begin{umaacknowledgments}
+A mis compañer@s de \emph{live coding}, que inspiran cada iteración, y al
+equipo del estándar WebGPU por abrir la puerta al cómputo en navegadores.
+\end{umaacknowledgments}
+
+%────────────────────── Índice y listas ────────────────────────────────
+\cleardoublepage
+\tableofcontents
+\cleardoublepage
+\listoffigures
+\cleardoublepage
+\listoftables
+\cleardoublepage
+
+%────────────────────── Nomenclatura ───────────────────────────────────
+\nomenclature{$n$}{Longitud lateral de la retícula $n\times n$}
+\nomenclature{$S_t$}{Matriz binaria de estados en el paso $t$}
+\nomenclature{$\mathcal N(i,j)$}{Vecindad de Von Neumann de la celda $(i,j)$}
+\nomenclature{$\delta$}{Delta de Kronecker}
+\nomenclature{$f_{\text{MIDI}}$}{Frecuencia de generación de notas (Hz)}
+\printnomenclature
+\cleardoublepage
+
+\mainmatter
+%────────────────────── Capítulo 1 — Introducción ──────────────────────
+\chapter{Introducción}
+Los autómatas celulares (AC) son sistemas dinámicos discretos capaces de
+comportamientos emergentes complejos.  El \emph{Game of Life} (GoL) de Conway
+es quizá el AC más icónico y se ha empleado en visualizaciones artísticas,
+generadores pseudoaleatorios y plataformas de computación no convencionales.
+La Figura~\cref{fig:overview} esquematiza la tubería audiovisual propuesta.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=.8\linewidth]{example-image-a}
+  \caption{Visión general del sistema: la simulación en GPU alimenta una unidad
+           de texturas y un codificador MIDI para VJ en tiempo real.}
+  \label{fig:overview}
+\end{figure}
+
+%────────────────────── Capítulo 2 — Fundamentos ───────────────────────
+\chapter{Fundamentos}
+\section{Regla de actualización}
+Sea \(S_t\in\{0,1\}^{n\times n}\) la retícula en el instante~\(t\).  
+La transición \(\Phi:\,S_t\mapsto S_{t+1}\) se define, elemento a elemento, por
+\begin{equation}
+  S_{t+1}(i,j) \;=\;
+  \begin{cases}
+    1 &\text{si } S_t(i,j)=1 \wedge N_8(i,j)\in\{2,3\},\\
+    1 &\text{si } S_t(i,j)=0 \wedge N_8(i,j)=3,\\
+    0 &\text{en otro caso},
+  \end{cases}
+  \label{eq:gol}
+\end{equation}
+donde \(N_8(i,j)=\sum_{(u,v)\in\mathcal N_8(i,j)}S_t(u,v)\) cuenta los vecinos
+de Moore.
+
+\begin{definition}[Período del \emph{glider}]
+Un patrón \(P\subseteq S\) tiene \emph{período~\(k\)} si
+\(\Phi^k(P)=P\) salvo traslación.  El \emph{glider} cumple \(k=4\).
+\end{definition}
+
+\begin{theorem}[Completitud de Turing {\cite{sakata1990extension}}]
+El \emph{Game of Life} puede simular una máquina de Turing universal.
+\end{theorem}
+
+\section{Asignación MIDI}
+Las activaciones celulares se codifican en números de nota MIDI mediante
+\(
+  n_{ij} = 60 + (i + 7j)\bmod 12
+\),
+creando una textura cromática que evoluciona con \(S_t\).
+
+%────────────────────── Capítulo 3 — Metodología ───────────────────────
+\chapter{Metodología}
+\section{Diseño del \emph{kernel} GPU}
+\begin{algorithm}
+  \caption{Actualización del Game of Life en GPU mediante \emph{tiles}}
+  \label{alg:gpu-life}
+  \begin{algorithmic}[1]
+    \Procedure{LifeStepKernel}{$S_t$}
+      \State $\textbf{tile} \gets \textsc{SharedMem}(TILE\_SIZE)$
+      \State \textsc{LoadTile}$(S_t,\textbf{tile})$
+      \Statex
+      \ForAll{$(i,j)\in\textbf{tile}$ \textbf{en paralelo}}
+        \State $n \gets \sum_{(u,v)\in\mathcal N_8} \textbf{tile}[u,v]$
+        \State $\textbf{out}[i,j] \gets 
+               ( \textbf{tile}[i,j] \wedge (n\!=\!2 \vee n\!=\!3))
+               \vee (\lnot\textbf{tile}[i,j] \wedge n\!=\!3)$
+      \EndFor
+      \State \textsc{Commit}$(\textbf{out}\rightarrow S_{t+1})$
+    \EndProcedure
+  \end{algorithmic}
+\end{algorithm}
+
+\section{Implementación de referencia (Python + NumPy)}
+\begin{lstlisting}[language=Python,
+  caption={Python: Paso de Game of Life en WebGPU},label={lst:py-life}]
+import wgpu, numpy as np
+
+@wgpu.compute
+def life_kernel(s_in: wgpu.Buffer[(n, n), "u8"],
+                s_out: wgpu.Buffer[(n, n), "u8"]):
+    x, y = wgpu.thread_id.x, wgpu.thread_id.y
+    n = sum(s_in[x+dx, y+dy] for (dx, dy) in NEIGHBORS)
+    alive = s_in[x, y]
+    s_out[x, y] = (alive and (n in (2, 3))) or (not alive and n == 3)
+\end{lstlisting}
+
+%────────────────────── Capítulo 4 — Resultados ────────────────────────
+\chapter{Resultados}
+\section{Rendimiento}
+Las tasas de \emph{frame} en función del tamaño de la rejilla se muestran en la
+Figura~\cref{fig:fps-performance}.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=.7\linewidth]{example-image-b}
+  \caption{FPS en una RTX-3060 (media de 1 000 pasos).}
+  \label{fig:fps-performance}
+\end{figure}
+
+\begin{table}[ht]
+  \centering
+  \caption{Comparación de rendimiento CPU vs. GPU}
+  \label{tab:perf}
+  \begin{tabular}{lS[table-format=4.0]S[table-format=2.1]}
+    \toprule
+    Backend & {Celdas / ms} & {Energía (W)} \\
+    \midrule
+    CPU O3           & 8\,120 & 65.2 \\
+    CUDA (980 Ti)    & 94\,300 & 187.4 \\
+    WebGPU (RTX-3060)& 83\,600 & 170.1 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section{Estudio de usuarios}
+Los participantes (\(n=24\)) prefirieron nuestra salida audiovisual frente a un
+shader de referencia con una puntuación media de \(6.4\pm0.8\) en escala Likert.
+
+%────────────────────── Capítulo 5 — Discusión ──────────────────────────
+\chapter{Discusión}
+\blindtext
+
+%────────────────────── Apéndices ──────────────────────────────────────
+\begin{umaappendices}
+
+\umaappendix{Ejemplos de código en múltiples lenguajes}
+
+\section{Ejemplo en C}
+\begin{lstlisting}[language=C,
+  caption={C: Paso ingenuo de Game of Life en CPU},label={lst:c-life}]
+void life_step(uint8_t *s, uint8_t *o, int n) {
+  for (int i=1;i<n-1;++i)
+    for (int j=1;j<n-1;++j) {
+      int k = i*n + j;
+      int n8 = s[k-1-n]+s[k-n]+s[k+1-n]+
+               s[k-1  ]        +s[k+1  ]+
+               s[k-1+n]+s[k+n]+s[k+1+n];
+      o[k] = (s[k] && (n8==2 || n8==3)) || (!s[k] && n8==3);
+    }
+}
+\end{lstlisting}
+
+\section{Ejemplo en C++}
+\begin{lstlisting}[language=C++,
+  caption={C++17: Lanzamiento de un shader WGSL},label={lst:cpp-dispatch}]
+#include <webgpu/webgpu.hpp>
+void runLife(wgpu::Device dev, wgpu::Buffer in, wgpu::Buffer out, int n) {
+    wgpu::ComputePipeline pipe = makePipeline(dev, "life.wgsl");
+    wgpu::CommandEncoder enc = dev.CreateCommandEncoder();
+    wgpu::ComputePassEncoder pass = enc.BeginComputePass();
+    pass.SetPipeline(pipe);
+    pass.SetBindGroup(0, makeBindGroup(dev, in, out));
+    pass.DispatchWorkgroups(n/16, n/16);
+    pass.End();
+    dev.GetQueue().Submit({enc.Finish()});
+}
+\end{lstlisting}
+
+\section{Ejemplo en MATLAB}
+\begin{lstlisting}[language=Matlab,
+  caption={MATLAB: Life mediante convolución},label={lst:matlab-life}]
+function S = lifeStep(S)
+    N = conv2(S, ones(3), 'same') - S;
+    S = (S & (N==2 | N==3)) | (~S & N==3);
+end
+\end{lstlisting}
+
+\section{Ejemplo en R}
+\begin{lstlisting}[language=R,
+  caption={R: Histograma de estados},label={lst:r-hist}]
+hist(as.vector(S), breaks = 2,
+     main = "Vivas vs. Muertas", xlab = "Estado")
+\end{lstlisting}
+
+\umaappendix{Otros recursos}
+\section{Trabajos futuros}
+\blindtext[1]
+\end{umaappendices}
+
+%────────────────────── Contraportada ──────────────────────────────────
+\backmatter
+\printbibliography[title={Bibliografía}]
+\cleardoublepage
+\MakeUMABackCover
+\end{document}
+% ======================================================================

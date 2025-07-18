@@ -1,0 +1,138 @@
+% ======================================================================
+%  UMA – ETSI Informática · Static Back Cover
+%  example.tex (2025-07-02)
+%  Author: Mario Pascual González <mpascual@uma.es>
+% ======================================================================
+
+% ======================================================================
+% Nota:
+
+% Gracias por usar mi plantilla para tu Trabajo Fin de Grado. Si tienes
+% cualquier comentario para mejorarla, o quieres hacerlo tú mism@, puedes
+% ponerte en contacto conmigo en mpascual@uma.es, o crear un pull request 
+% en https://github.com/MarioPasc/UMA-TFG-ETSI-Templates 
+
+% El proyecto puede tardar bastante en compilar por primera vez, es normal. 
+% Una vez se hagan varias compilaciones, la caché de Overleaf se llenará y
+% cargará más rápido. 
+% Si quieres ahorrar tiempo de carga, puedes comentar las líneas 
+%     \usepackage{sty_files/cotutor_cover-blueuma}
+%     \usepackage{sty_files/cotutor_cover-whiteuma}
+% Si no tienes un co-tutor asociado (y vas a usar \MakePlain{Blue/White}UMACover)
+% o, si tienes un co-tutor asociado, comentar las líneas
+%      \usepackage{sty_files/plain_cover-blueuma}
+%      \usepackage{sty_files/plain_cover-whiteuma}
+% Y vas a usar \Make{Blue/White}UMACover
+% ======================================================================
+\documentclass{report}
+
+%───────── Plantilla, portadas y contraportada ─────────────────────────
+\usepackage[malacitana]{template/sty_files/template-TFGenglish-uma}
+
+\usepackage{template/sty_files/cotutor_cover-blueuma}
+\usepackage{template/sty_files/cotutor_cover-whiteuma}
+
+\usepackage{template/sty_files/plain_cover-blueuma}
+\usepackage{template/sty_files/plain_cover-whiteuma}
+
+\usepackage{template/sty_files/backcover-umaes}
+
+%───────── Paquetes auxiliares ─────────────────────────────────────────
+\usepackage{blindtext}
+\usepackage{mwe}               % imágenes de prueba
+\usepackage{csquotes}
+\usepackage[
+  backend=biber,
+  style=numeric,
+  sorting=nyt
+]{biblatex}
+\addbibresource{references.bib}
+
+%======================================================================
+\begin{document}
+
+\frontmatter
+%────────────────────── Blue front cover ───────────────────────────────
+\MakeBlueUMACover{
+  degree     = {Grado en Ingeniería Informática},
+  mencion    = {Ingeniería del Software},
+  titleES    = {Game of Life Acelerado por GPU para Performance Audiovisual en Tiempo Real},
+  titleEN    = {GPU-Accelerated Game of Life for Real-Time Audiovisual Performance},
+  author     = {John Doe},
+  tutor      = {Dr.~John Doe},
+  cotutor    = {Dra.~Jane Doe},
+  dept       = {Departamento de Lenguajes y Ciencias de la Computación},
+  cityDate   = {Málaga, \today},
+  logoLeft   = {template/logos/NEG-uma-logo.png},
+  logoRight  = {template/logos/NEG-etsi-logo.png}
+}
+
+%────────────────────── White front cover ──────────────────────────────
+\MakeWhiteUMACover{
+  degree      = {Grado en Ingeniería Informática},
+  mencion     = {Ingeniería del Software},
+  titleES     = {Game of Life Acelerado por GPU para Performance Audiovisual en Tiempo Real},
+  titleEN     = {GPU-Accelerated Game of Life for Real-Time Audiovisual Performance},
+  author      = {John Doe},
+  tutor       = {Dr.~John Doe},
+  cotutor     = {Dra.~Jane Doe},
+  dept        = {Departamento de Lenguajes y Ciencias de la Computación},
+  cityDate    = {MÁLAGA, \today},
+  defenseDate = {septiembre de 2025},
+  logoLeft    = {template/logos/POS-uma-logo.png},
+  logoRight   = {template/logos/POS-etsi-logo.png}
+}
+
+%────────────────────── Resumen / Abstract ─────────────────────────────
+\renewcommand{\abstractname}{Resumen}
+\begin{abstract}
+
+
+\medskip
+\noindent\textbf{Palabras clave:} 
+\end{abstract}
+
+\renewcommand{\abstractname}{Abstract}
+\begin{abstract}
+
+
+\medskip
+\noindent\textbf{Keywords:} 
+\end{abstract}
+
+%──────────────── Agradecimientos ──────────────────────────────────────
+% Sección opcional, si no se quiere usar, borrar el entorno umaacknowledgments
+
+% Descomentar si los vas a escribir en inglés
+% \SetAcknowledgmentsName{Acknowledgments} 
+\begin{umaacknowledgments}
+
+\end{umaacknowledgments}
+
+%────────────────────── Índice y listas ────────────────────────────────
+\cleardoublepage
+\tableofcontents
+\cleardoublepage
+\listoffigures
+\cleardoublepage
+\listoftables
+\cleardoublepage
+
+%────────────────────── Nomenclatura ───────────────────────────────────
+\nomenclature{}{}
+\printnomenclature
+\cleardoublepage
+
+\mainmatter
+%────────────────────── Cuerpo ─────────────────────────────────────────
+% https://en.wikipedia.org/wiki/Standing_on_the_shoulders_of_giants 
+
+
+
+%────────────────────── Contraportada ──────────────────────────────────
+\backmatter
+\printbibliography[title={Bibliography}]
+\cleardoublepage
+\MakeUMABackCover
+\end{document}
+% ======================================================================
