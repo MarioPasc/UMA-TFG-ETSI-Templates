@@ -3,7 +3,7 @@
 %  Author: Mario Pascual González  <mpascual@uma.es>
 % ======================================================================
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{coverblueuma}[2025/06/24 v1.2 UMA bachelor thesis cover]
+\ProvidesPackage{template/sty_files/cotutor_cover-blueuma}[2025/06/24 v1.2 UMA bachelor thesis cover]
 
 % ---------- Dependencies ----------
 \RequirePackage{tikz}
@@ -59,7 +59,13 @@
 \newcommand*\MakeBlueUMACover[1]{%
   \pgfkeys{/umaCover,#1}%  parse user keys
   \begingroup
-    \uma@selectsffont
+    \setmainfont[
+      Path = {template/fonts/Malacitana/},
+      UprightFont    = *-Regular.otf,
+      BoldFont       = *-Bold.otf,
+      ItalicFont     = *-Italic.otf,
+      BoldItalicFont = *-BoldItalic.otf
+    ]{Malacitana}
     \pagecolor{UMAblue}\color{UMAgray}% background + text colour
 
     \begin{titlepage}

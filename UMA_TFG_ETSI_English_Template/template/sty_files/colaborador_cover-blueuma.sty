@@ -3,7 +3,7 @@
 %  Author: Mario Pascual González  <mpascual@uma.es>
 % ======================================================================
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{template/sty_files/cotutor_cover-blueuma}[2025/06/24 v1.2 UMA bachelor thesis cover]
+\ProvidesPackage{template/sty_files/colaborador_cover-blueuma}[2025/06/24 v1.2 UMA bachelor thesis cover]
 
 % ---------- Dependencies ----------
 \RequirePackage{tikz}
@@ -22,19 +22,19 @@
 % ---------- Key–value interface --------------------------------------
 \pgfkeys{/umaCover/.is family, /umaCover,
   degree/.store in     = \uma@degree,
-  mencion/.store in    = \uma@mencion,      
+  mencion/.store in    = \uma@mencion,     
   titleES/.store in    = \uma@titleES,
   titleEN/.store in    = \uma@titleEN,
   author/.store in     = \uma@author,
   tutor/.store in      = \uma@tutor,
-  cotutor/.store in    = \uma@cotutor,      
+  colaborador/.store in    = \uma@colaborador,    
   dept/.store in       = \uma@dept,
   cityDate/.store in   = \uma@cityDate,
   logoLeft/.store in   = \uma@logoL,
   logoRight/.store in  = \uma@logoR,
   % default values:
   mencion  = ,  
-  cotutor  = ,
+  colaborador  = ,
   logoLeft  = template/logos/NEG-uma-logo.png,
   logoRight = template/logos/NEG-etsi-logo.png,
 }
@@ -45,8 +45,7 @@
 % ----------------------------------------------------------------------
 \RequirePackage{etoolbox}
 
-
-\newcommand*\MakeBlueUMACover[1]{%
+\newcommand*\MakeColabBlueUMACover[1]{%
   \pgfkeys{/umaCover,#1}%  parse user keys
   \begingroup
     \setmainfont[
@@ -101,12 +100,12 @@
       {\color{white}\Large \uma@tutor\par}
 
       %── Optional “Co-tutor” just below tutor ──
-     \ifblank{\uma@cotutor}{
+     \ifblank{\uma@colaborador}{
         
      }{
        \vspace{0.1cm}
-       {\Large\textit{Co-tutorizado por}\par}
-       {\color{white}\Large \uma@cotutor\par}
+       {\Large\textit{Con la Colaboración Externa de:}\par}
+       {\color{white}\Large \uma@colaborador\par}
      }
 
       \vspace{0.2cm}

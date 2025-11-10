@@ -4,7 +4,7 @@
 %  Author: Mario Pascual González  <mpascual@uma.es>
 % ======================================================================
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{coverwhiteuma}[2025/06/24 v1.1 UMA white-background thesis cover]
+\ProvidesPackage{template/sty_files/plain_cover-whiteuma}[2025/06/24 v1.1 UMA white-background thesis cover]
 
 % ---------- Dependencies ----------
 \RequirePackage{tikz}
@@ -55,7 +55,13 @@
 \newcommand*\MakePlainWhiteUMACover[1]{%
   \pgfkeys{/umaCover,#1}% parse user keys
   \begingroup
-    \uma@selectsffont
+    \setmainfont[
+      Path = {template/fonts/Malacitana/},
+      UprightFont    = *-Regular.otf,
+      BoldFont       = *-Bold.otf,
+      ItalicFont     = *-Italic.otf,
+      BoldItalicFont = *-BoldItalic.otf
+    ]{Malacitana}
     \color{black}% all text in black
 
     \begin{titlepage}

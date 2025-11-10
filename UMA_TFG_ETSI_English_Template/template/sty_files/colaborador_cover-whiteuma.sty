@@ -4,7 +4,7 @@
 %  Author: Mario Pascual González  <mpascual@uma.es>
 % ======================================================================
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{template/sty_files/cotutor_cover-whiteuma}[2025/06/24 v1.1 UMA white-background thesis cover]
+\ProvidesPackage{template/sty_files/colaborador_cover-whiteuma}[2025/06/24 v1.1 UMA white-background thesis cover]
 
 % ---------- Dependencies ----------
 \RequirePackage{tikz}
@@ -26,7 +26,7 @@
   titleEN/.store in     = \uma@titleEN,
   author/.store in      = \uma@author,
   tutor/.store in       = \uma@tutor,
-  cotutor/.store in     = \uma@cotutor,
+  colaborador/.store in     = \uma@colaborador,
   dept/.store in        = \uma@dept,
   cityDate/.store in    = \uma@cityDate,
   defenseDate/.store in = \uma@defenseDate,  % ← new
@@ -34,26 +34,16 @@
   logoRight/.store in   = \uma@logoR,
   % defaults
   mencion     = {},
-  cotutor     = {},
+  colaborador     = {},
   defenseDate = {},
   logoLeft    = template/logos/POS-uma-logo.png,
   logoRight   = template/logos/POS-etsi-logo.png,
 }
 
 % ----------------------------------------------------------------------
-%  User tuning guide:
-%
-%   • To adjust vertical spacing between blocks, change the \vspace* and
-%     \vspace commands inside \MakeWhiteUMACover.
-%
-%   • To adjust font sizes, alter the \fontsize{<size>}{<baseline>}
-%     calls (e.g.\ \fontsize{20pt}{22pt}) and then re-run \selectfont.
-% ----------------------------------------------------------------------
-
-% ----------------------------------------------------------------------
 %  \MakeWhiteUMACover{<key=value,...>}
 % ----------------------------------------------------------------------
-\newcommand*\MakeWhiteUMACover[1]{%
+\newcommand*\MakeColabWhiteUMACover[1]{%
   \pgfkeys{/umaCover,#1}% parse user keys
   \begingroup
     \setmainfont[
@@ -105,10 +95,10 @@
       {\bfseries \Large \uma@tutor\par}
 
       % Optional “Co-tutor”
-      \if\relax\detokenize{\uma@cotutor}\relax\else
+      \if\relax\detokenize{\uma@colaborador}\relax\else
         \vspace{0.1cm}
-        {\Large\textit{Co-tutorizado por}\par}
-        {\bfseries \Large \uma@cotutor\par}
+        {\Large\textit{Con la Colaboración Externa de }\par}
+        {\bfseries \Large \uma@colaborador\par}
       \fi
 
       \vspace{0.5cm}

@@ -3,7 +3,7 @@
 %  Author: Mario Pascual González  <mpascual@uma.es>
 % ======================================================================
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{coverblueuma}[2025/06/24 v1.2 UMA bachelor thesis cover]
+\ProvidesPackage{template/sty_files/plain_cover-blueuma}[2025/06/24 v1.2 UMA bachelor thesis cover]
 
 % ---------- Dependencies ----------
 \RequirePackage{tikz}
@@ -38,16 +38,6 @@
 
 
 % ----------------------------------------------------------------------
-%  User tuning guide:
-%
-%   • To adjust vertical spacing between blocks, modify the \vspace*{…}
-%     and \vspace{…} commands inside \MakeUMACover.
-%
-%   • To adjust font sizes, change the \fontsize{<size>}{<baseline>}
-%     arguments (e.g.\ \fontsize{20pt}{22pt}) and re-run \selectfont.
-% ----------------------------------------------------------------------
-
-% ----------------------------------------------------------------------
 %  \MakeUMACover{<key=value,...>}
 % ----------------------------------------------------------------------
 \RequirePackage{etoolbox}
@@ -56,7 +46,13 @@
 \newcommand*\MakePlainBlueUMACover[1]{%
   \pgfkeys{/umaCover,#1}%  parse user keys
   \begingroup
-    \uma@selectsffont
+    \setmainfont[
+      Path = {template/fonts/Malacitana/},
+      UprightFont    = *-Regular.otf,
+      BoldFont       = *-Bold.otf,
+      ItalicFont     = *-Italic.otf,
+      BoldItalicFont = *-BoldItalic.otf
+    ]{Malacitana}
     \pagecolor{UMAblue}\color{UMAgray}% background + text colour
 
     \begin{titlepage}

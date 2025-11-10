@@ -1,6 +1,6 @@
 % ─────────────────────────────────────────────────────────────────────────────
-%  templateTFGenglishuma.sty
-%  English scientific‑thesis template, Univ. Málaga
+%  templateTFGespanioluma.sty
+%  Spanish scientific‑thesis template, Univ. Málaga
 %  Author ......... Mario Pascual González  <mpascual@uma.es>
 %  Licence ........ LPPL 1.3c
 %  Version ........ 2025‑06‑24 v2.1‑rev‑C
@@ -10,7 +10,7 @@
 % ║   0 · Package set‑up / global options                                     ║
 % ╚═══════════════════════════════════════════════════════════════════════════╝
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{template/sty_files/template-TFGenglish-uma}[2025/06/24 v2.1-rev-C Scientific-style]
+\ProvidesPackage{template/sty_files/template-TFGspanish-uma}[2025/06/24 v2.1-rev-C Scientific-style]
 
 \makeatletter                    % internal @‑macros allowed
 \PassOptionsToClass{12pt,a4paper,twoside,openright}{report}
@@ -22,6 +22,7 @@
 % ╚═══════════════════════════════════════════════════════════════════════════╝
 \RequirePackage{fontspec}
 
+% Global defaults   
 % Sans becomes “main”
 \setmainfont[
   Path   = {template/fonts/Malacitana_Sans/},
@@ -41,8 +42,8 @@
 ]{Malacitana}
 
 
-\RequirePackage{microtype}
 
+\RequirePackage{microtype}
 
 % ╔═══════════════════════════════════════════════════════════════════════════╗
 % ║   2 · Geometry                                                            ║
@@ -111,6 +112,7 @@
 % ║   6 · Nomenclature heading (titlesec style)                               ║
 % ╚═══════════════════════════════════════════════════════════════════════════╝
 \RequirePackage{etoolbox}
+\AtBeginDocument{\renewcommand{\nomname}{Nomenclatura}}
 \AtBeginDocument{%
   \@ifundefined{printnomenclature}{}{%
     % prepend our own heading – grouped so Roman doesn’t leak
@@ -126,9 +128,6 @@
     \patchcmd{\printnomenclature}{\markboth{\nomname}{\nomname}}{}{}{}%
   }%
 }
-
-% ════════════════════════════════════════════════════════════════════════════
-
 
 % ╔═══════════════════════════════════════════════════════════════════════════╗
 % ║   7 · Abstract environment                                                ║
@@ -151,7 +150,6 @@
   }%
 }
 
-
 % ╔═══════════════════════════════════════════════════════════════════════════╗
 % ║   8 · TOC / LoF / LoT title style                                         ║
 % ╚═══════════════════════════════════════════════════════════════════════════╝
@@ -165,7 +163,6 @@
 \RequirePackage{tocloft}
 \AtBeginDocument{%
   \newcommand*\uma@UnnumChapFmt{{\MalacitanaRoman\bfseries\fontsize{45}{50}\selectfont\hspace*{\fill}}}
-
   \renewcommand{\cfttoctitlefont}{\uma@UnnumChapFmt}
   \renewcommand{\cftloftitlefont}{\uma@UnnumChapFmt}
   \renewcommand{\cftlottitlefont}{\uma@UnnumChapFmt}
@@ -238,10 +235,10 @@
   \cleardoublepage{%
     \raggedleft
     {\MalacitanaRoman\color{UMAgray}\bfseries\fontsize{42}{45}\selectfont
-      Appendix~\theuma@appendix.\ #1\par}%
+      Apéndice~\theuma@appendix.\ #1\par}%
   }\vspace{18pt}%
-  \addcontentsline{toc}{chapter}{Appendix~\theuma@appendix.\ #1}%
-  \markboth{Appendix~\theuma@appendix.\ #1}{Appendix~\theuma@appendix.\ #1}}
+  \addcontentsline{toc}{chapter}{Apéndice~\theuma@appendix.\ #1}%
+  \markboth{Apéndice~\theuma@appendix.\ #1}{Apéndice~\theuma@appendix.\ #1}}
 \makeatother
 
 % ╔═══════════════════════════════════════════════════════════════════════════╗
@@ -260,7 +257,7 @@
 \definecolor{codebg}{HTML}{F7F9FA}
 \definecolor{coderule}{HTML}{CBD4DC}
 \definecolor{stringcol}{rgb}{0.46,0.0,0.54}
-\lstset{backgroundcolor=\color{codebg},basicstyle=\MalacitanaRoman\small,
+\lstset{backgroundcolor=\color{codebg},basicstyle=\rmfamily\small,
         numbers=left,numberstyle=\tiny\color{UMAgray},stepnumber=1,numbersep=8pt,
         frame=single,framerule=0.3pt,rulecolor=\color{coderule},
         breaklines=true,columns=flexible,captionpos=b,tabsize=2}
@@ -363,7 +360,6 @@
 \theoremstyle{umaRoman}
 \captionsetup{font={rm,it}, labelfont={rm,bf}}
 
-
 % ╔═══════════════════════════════════════════════════════════════════════════╗
 % ║ 15 · Acknowledgements environment                                         ║
 % ╚═══════════════════════════════════════════════════════════════════════════╝
@@ -383,6 +379,61 @@
 \providecommand{\frontmatter}{}
 \providecommand{\mainmatter}{}
 \providecommand{\backmatter}{}
+
+% ╔════════════════════════════════════════════════════════════════════════╗
+% ║ 17 · Spanish localisation                                              ║
+% ╚════════════════════════════════════════════════════════════════════════╝
+
+\renewcommand{\contentsname}{Índice}
+\renewcommand{\listfigurename}{Índice de Figuras}
+\renewcommand{\listtablename}{Índice de Tablas}
+\renewcommand{\chaptername}{Capítulo}
+\renewcommand{\figurename}{Figura}
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\abstractname}{Resumen}
+\renewcommand{\bibname}{Bibliografía}%  report/book
+
+% *** Float captions (algorithm & listings) ******************************
+\floatname{algorithm}{Algoritmo}
+\renewcommand{\algorithmicrequire}{Entrada:}
+\renewcommand{\algorithmicensure}{Salida:}
+\providecommand{\lstlistingname}{Listado}
+\providecommand{\lstlistlistingname}{Índice de Listados}
+
+% *** cleveref formats (singular) ****************************************
+\crefformat{chapter}{Capítulo~#2#1#3}
+\crefformat{section}{Sección~#2#1#3}
+\crefformat{figure}{Fig.~#2#1#3}
+\crefformat{table}{Tabla~#2#1#3}
+\crefformat{equation}{Ec.~#2#1#3}
+\crefformat{theorem}{Teor.~#2#1#3}
+\crefformat{lemma}{Lem.~#2#1#3}
+\crefformat{proposition}{Prop.~#2#1#3}
+\crefformat{corollary}{Cor.~#2#1#3}
+\crefformat{definition}{Def.~#2#1#3}
+\crefformat{example}{Ej.~#2#1#3}
+\crefformat{remark}{Obs.~#2#1#3}
+\crefformat{algorithm}{Alg.~#2#1#3}
+\crefformat{lstlisting}{Listado~#2#1#3}
+
+% *** cleveref formats (plural) ******************************************
+\crefname{chapter}{capítulo}{capítulos}
+\crefname{section}{sección}{secciones}
+\crefname{figure}{figura}{figuras}
+\crefname{table}{tabla}{tablas}
+\crefname{equation}{ecuación}{ecuaciones}
+\crefname{theorem}{teorema}{teoremas}
+\crefname{lemma}{lema}{lemas}
+\crefname{proposition}{proposición}{proposiciones}
+\crefname{corollary}{corolario}{corolarios}
+\crefname{definition}{definición}{definiciones}
+\crefname{example}{ejemplo}{ejemplos}
+\crefname{remark}{observación}{observaciones}
+\crefname{algorithm}{algoritmo}{algoritmos}
+\crefname{lstlisting}{listado}{listados}
+
+% ══════════════════════════════════════════════════════════════════════════
+
 
 \makeatother % restore catcodes
 % ─────────────────────────────────────────────────────────────────────────────
