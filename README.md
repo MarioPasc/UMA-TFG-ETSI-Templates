@@ -27,5 +27,5 @@ provided you **keep the author and licence notices unchanged**.
 | ---------------------- | ----------------------------------------- |
 | Mario Pascual González | [mpascual@uma.es](mailto:mpascual@uma.es) |
 
-I hope this template helps you create the best version of your TFG. Good Luck.
+I hope this template helps you create the best version of your TFG. Best of luck!
 
