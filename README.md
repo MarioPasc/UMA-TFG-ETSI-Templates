@@ -6,20 +6,6 @@ Format-styling related to the template is defined [here](https://www.uma.es/etsi
 
 ---
 
-## Features
-
-| Area                 | What’s included                                                                       |
-|----------------------|---------------------------------------------------------------------------------------|
-| **Layout**           | A4 geometry, fancyhdr footer, open-right chapters, custom chapter/section styles      |
-| **Language**         | English & Spanish flavours (`templateTFGenglishuma.sty`, `templateTFGspanishuma.sty`) |
-| **Corporate covers** | Blue & white variants with keys: `titleES`, `titleEN`, `degree`, `tutor`, *etc.*      |
-| **Optional fields**  | Smart `cotutor` & `mencion` keys – blank or omitted values remove the block entirely  |
-| **Environments**     | `umaacknowledgments`, theorem & definition styles, nomenclature list, listings        |
-| **Packages pre-wired** | `cleveref`, `siunitx`, `algorithm/algpseudocode`, `microtype`, `hyperref` *…*       |
-| **Appendix helper**  | Automatic Roman or Alphabetic indexing                                                |
-| **100 % LPPL**       | Liberal modification & redistribution under the LaTeX Project Public Licence 1.3c     |
-
-
 ## Contributing
 
 You can create a Fork of this project and include your changes via a pull request. I'll try to keep the project updated, altough important visual changes may need extra supervision by the TFG commission. Bug reports and feature requests are welcome in the **Issues** tab.
