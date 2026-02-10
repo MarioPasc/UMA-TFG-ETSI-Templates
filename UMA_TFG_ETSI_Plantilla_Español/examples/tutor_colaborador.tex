@@ -1,5 +1,5 @@
 % ======================================================================
-\documentclass{report}
+\documentclass[12pt,a4paper,twoside,openright]{book}
 
 %───────── Template, covers, back cover ────────────────────────────────
 \usepackage{template/sty_files/template-TFGspanish-uma}
@@ -7,7 +7,7 @@
 \usepackage{template/sty_files/colaborador_cover-blueuma}
 \usepackage{template/sty_files/colaborador_cover-whiteuma}
 
-\usepackage{template/sty_files/backcover-umaes}
+\usepackage{template/sty_files/backcover-uma}
 
 %───────── Auxiliary packages ──────────────────────────────────────────
 \usepackage{blindtext}
@@ -30,21 +30,11 @@
 ]{biblatex}
 \addbibresource{references.bib}
 
-% Listings config
-\lstset{
-  basicstyle=\ttfamily\small,
-  numbers=left,
-  numberstyle=\tiny,
-  columns=fullflexible,
-  frame=single,
-  breaklines=true,
-  tabsize=2
-}
+
 
 %======================================================================
 \begin{document}
 
-\frontmatter
 
 %────────────────────── Blue front cover (Colaborador) ───────────────────────
 \MakeColabBlueUMACover{
@@ -56,14 +46,14 @@
   tutor      = {Dr.~John Doe},
   colaborador= {Dra.~Jane Doe},
   dept       = {Departamento de Lenguajes y Ciencias de la Computación},
-  cityDate   = {Málaga, \today},
+  cityDate   = {Málaga, Noviembre, 2025},
   logoLeft   = {template/logos/NEG-uma-logo.png},
   logoRight  = {template/logos/NEG-etsi-logo.png}
 }
 
 %────────────────────── White front cover (Colaborador) ───────────────────────
 \MakeColabWhiteUMACover{
-  degree     = {Grado en Ingeniería de la Salud},
+  degree     = {Graduado en Ingeniería de la Salud},
   mencion    = {Mención en Bioinformática},
   titleES    = {Reconstrucción y Segmentación de Imágenes Biomédicas con Redes Neuronales Profundas},
   titleEN    = {Deep Neural Networks for Biomedical Image Reconstruction and Segmentation},
@@ -71,10 +61,12 @@
   tutor      = {Dr.~John Doe},
   colaborador= {Dra.~Jane Doe},
   dept       = {Departamento de Lenguajes y Ciencias de la Computación},
-  cityDate   = {Málaga, \today},
+  cityDate   = {Málaga, Noviembre, 2025},
+  defenseDate = {Septiembre, 2025},
   logoLeft   = {template/logos/POS-uma-logo.png},
   logoRight  = {template/logos/POS-etsi-logo.png}
 }
+\frontmatter
 
 %────────────────────── Abstracts ──────────────────────────────────────
 \renewcommand{\abstractname}{Resumen}
@@ -113,14 +105,9 @@ Agradezco su función a los clínicos colaboradores, así como al grupo de Intel
 \end{umaacknowledgments}
 
 %────────────────────── TOC and lists ──────────────────────────────────
-\cleardoublepage
 \tableofcontents
-\cleardoublepage
 \listoffigures
-\cleardoublepage
 \listoftables
-\cleardoublepage
-
 %────────────────────── Nomenclature ───────────────────────────────────
 \nomenclature{$x \in \mathbb{R}^{H\times W\times D}$}{HR volume}
 \nomenclature{$y \in \mathbb{R}^{h\times w\times d}$}{LR volume}
@@ -131,7 +118,6 @@ Agradezco su función a los clínicos colaboradores, así como al grupo de Intel
 \nomenclature{$\operatorname{SSIM}$}{Structural Similarity}
 \nomenclature{$\operatorname{Dice}$}{Sørensen–Dice coefficient}
 \printnomenclature
-\cleardoublepage
 
 \mainmatter
 %────────────────────── Chapter 1 — Introduction ───────────────────────

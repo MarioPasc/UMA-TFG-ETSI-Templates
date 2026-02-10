@@ -1,5 +1,5 @@
 % ======================================================================
-\documentclass{report}
+\documentclass[12pt,a4paper,twoside,openright]{book}
 
 %───────── Template, covers, back cover ────────────────────────────────
 \usepackage{template/sty_files/template-TFGenglish-uma}
@@ -44,7 +44,6 @@
 %======================================================================
 \begin{document}
 
-\frontmatter
 %────────────────────── Blue front cover (plain) ───────────────────────
 \MakePlainBlueUMACover{
   degree     = {Grado en Ingeniería de la Salud},
@@ -54,25 +53,26 @@
   author     = {John Doe},
   tutor      = {Dr.~John Doe, Dra.~Jane Doe},
   dept       = {Departamento de Lenguajes y Ciencias de la Computación},
-  cityDate   = {Málaga, \today},
+  cityDate   = {Málaga, Noviembre, 2025},
   logoLeft   = {template/logos/NEG-uma-logo.png},
   logoRight  = {template/logos/NEG-etsi-logo.png}
 }
 
 %────────────────────── White front cover (plain) ──────────────────────
 \MakePlainWhiteUMACover{
-  degree      = {Grado en Ingeniería de la Salud},
+  degree     = {Graduado en Ingeniería de la Salud},
   mencion     = {Mención en Bioinformática},
   titleES     = {Reconstrucción y Segmentación de Imágenes Biomédicas con Redes Neuronales Profundas},
   titleEN     = {Deep Neural Networks for Biomedical Image Reconstruction and Segmentation},
   author      = {John Doe},
   tutor       = {Dr.~John Doe, Dra.~Jane Doe},
   dept        = {Departamento de Lenguajes y Ciencias de la Computación},
-  cityDate    = {MÁLAGA, \today},
-  defenseDate = {septiembre de 2025},
+  cityDate    = {MÁLAGA, Noviembre, 2025},
+  defenseDate = {Septiembre de 2025},
   logoLeft    = {template/logos/POS-uma-logo.png},
   logoRight   = {template/logos/POS-etsi-logo.png}
 }
+\frontmatter
 
 %────────────────────── Abstracts ──────────────────────────────────────
 \renewcommand{\abstractname}{Resumen}
@@ -111,13 +111,13 @@ Agradezco su función a los clínicos colaboradores, así como al grupo de Intel
 \end{umaacknowledgments}
 
 %────────────────────── TOC and lists ──────────────────────────────────
-\cleardoublepage
+\clearpage
 \tableofcontents
-\cleardoublepage
+\clearpage
 \listoffigures
-\cleardoublepage
+\clearpage
 \listoftables
-\cleardoublepage
+\clearpage
 
 %────────────────────── Nomenclature ───────────────────────────────────
 \nomenclature{$x \in \mathbb{R}^{H\times W\times D}$}{HR volume}
@@ -129,7 +129,7 @@ Agradezco su función a los clínicos colaboradores, así como al grupo de Intel
 \nomenclature{$\operatorname{SSIM}$}{Structural Similarity}
 \nomenclature{$\operatorname{Dice}$}{Sørensen–Dice coefficient}
 \printnomenclature
-\cleardoublepage
+\clearpage
 
 \mainmatter
 %────────────────────── Chapter 1 — Introduction ───────────────────────

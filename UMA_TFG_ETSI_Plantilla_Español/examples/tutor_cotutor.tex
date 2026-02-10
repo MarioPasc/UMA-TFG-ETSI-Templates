@@ -1,13 +1,5 @@
 % ======================================================================
-\documentclass{report}
-
-%───────── Template, covers, back cover ────────────────────────────────
-\usepackage{template/sty_files/template-TFGspanish-uma}
-
-\usepackage{template/sty_files/cotutor_cover-blueuma}
-\usepackage{template/sty_files/cotutor_cover-whiteuma}
-
-\usepackage{template/sty_files/backcover-umaes}
+\documentclass[12pt,a4paper,twoside,openright]{book}
 
 %───────── Auxiliary packages ──────────────────────────────────────────
 \usepackage{blindtext}
@@ -41,11 +33,19 @@
   tabsize=2
 }
 
+%───────── Template, covers, back cover ────────────────────────────────
+\usepackage{template/sty_files/template-TFGspanish-uma}
+
+\usepackage{template/sty_files/cotutor_cover-blueuma}
+\usepackage{template/sty_files/cotutor_cover-whiteuma}
+
+\usepackage{template/sty_files/backcover-uma}
+
 %======================================================================
 \begin{document}
 
-\frontmatter
-%────────────────────── Blue front cover (cotutor) ─────────────────────
+%────────────────────── Blue front cover (Cotutor) ───────────────────────
+
 \MakeBlueUMACover{
   degree     = {Grado en Ingeniería de la Salud},
   mencion    = {Mención en Bioinformática},
@@ -53,30 +53,30 @@
   titleEN    = {Deep Neural Networks for Biomedical Image Reconstruction and Segmentation},
   author     = {John Doe},
   tutor      = {Dr.~John Doe},
-  cotutor    = {Dra.~Jane Doe},
+  cotutor= {Dra.~Jane Doe},
   dept       = {Departamento de Lenguajes y Ciencias de la Computación},
-  cityDate   = {Málaga, \today},
+  cityDate   = {Málaga, Noviembre, 2025},
   logoLeft   = {template/logos/NEG-uma-logo.png},
   logoRight  = {template/logos/NEG-etsi-logo.png}
 }
 
-
-%────────────────────── White front cover (cotutor) ────────────────────
+%────────────────────── White front cover (Cotutor) ───────────────────────
 \MakeWhiteUMACover{
-  degree      = {Grado en Ingeniería de la Salud},
-  mencion     = {Mención en Bioinformática},
-  titleES     = {Reconstrucción y Segmentación de Imágenes Biomédicas con Redes Neuronales Profundas},
-  titleEN     = {Deep Neural Networks for Biomedical Image Reconstruction and Segmentation},
-  author      = {John Doe},
-  tutor       = {Dr.~John Doe},
-  cotutor     = {Dra.~Jane Doe},
-  dept        = {Departamento de Lenguajes y Ciencias de la Computación},
-  cityDate    = {MÁLAGA, \today},
-  defenseDate = {septiembre de 2025},
-  logoLeft    = {template/logos/POS-uma-logo.png},
-  logoRight   = {template/logos/POS-etsi-logo.png}
+  degree     = {Graduado en Ingeniería de la Salud},
+  mencion    = {Mención en Bioinformática},
+  titleES    = {Reconstrucción y Segmentación de Imágenes Biomédicas con Redes Neuronales Profundas},
+  titleEN    = {Deep Neural Networks for Biomedical Image Reconstruction and Segmentation},
+  author     = {John Doe},
+  tutor      = {Dr.~John Doe},
+  cotutor= {Dra.~Jane Doe},
+  dept       = {Departamento de Lenguajes y Ciencias de la Computación},
+  cityDate   = {Málaga, Noviembre, 2025},
+  defenseDate = {Septiembre, 2025},
+  logoLeft   = {template/logos/POS-uma-logo.png},
+  logoRight  = {template/logos/POS-etsi-logo.png}
 }
 
+\frontmatter
 
 %────────────────────── Abstracts ──────────────────────────────────────
 \renewcommand{\abstractname}{Resumen}
@@ -115,13 +115,13 @@ Agradezco su función a los clínicos colaboradores, así como al grupo de Intel
 \end{umaacknowledgments}
 
 %────────────────────── TOC and lists ──────────────────────────────────
-\cleardoublepage
+\clearpage
 \tableofcontents
-\cleardoublepage
+\clearpage
 \listoffigures
-\cleardoublepage
+\clearpage
 \listoftables
-\cleardoublepage
+\clearpage
 
 %────────────────────── Nomenclature ───────────────────────────────────
 \nomenclature{$x \in \mathbb{R}^{H\times W\times D}$}{HR volume}
@@ -133,7 +133,7 @@ Agradezco su función a los clínicos colaboradores, así como al grupo de Intel
 \nomenclature{$\operatorname{SSIM}$}{Structural Similarity}
 \nomenclature{$\operatorname{Dice}$}{Sørensen–Dice coefficient}
 \printnomenclature
-\cleardoublepage
+\clearpage
 
 \mainmatter
 %────────────────────── Chapter 1 — Introduction ───────────────────────
@@ -174,6 +174,7 @@ Total loss:
 \(\mathcal{L} = \mathcal{L}_{\mathrm{SR}} + \gamma\,\mathcal{L}_{\mathrm{seg}}\).
 
 \section{Metrics}
+Performance metrics
 \begin{align}
 \operatorname{PSNR}(x,\hat x) &= 10\log_{10}\!\frac{L^2}{\operatorname{MSE}(x,\hat x)},\\
 \operatorname{SSIM}(x,\hat x) &= \frac{(2\mu_x\mu_{\hat x}+C_1)(2\sigma_{x\hat x}+C_2)}
